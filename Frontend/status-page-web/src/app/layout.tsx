@@ -25,9 +25,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="relative h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black">
+          {/* <div className="absolute z-0 inset-0 "></div> */}
+          <div className="absolute -z-10 inset-0 bg-noise opacity-10"></div>
+
+          {children}
+
+        </div>
       </body>
     </html>
   );
