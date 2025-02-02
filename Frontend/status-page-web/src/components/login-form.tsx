@@ -31,8 +31,14 @@ export function LoginForm({
     event.preventDefault();
     const res = await LoginUseCase({ loginState });
 
-    if (res?.ok) router.push("/dashboard");
+    if (res?.ok) {
+      router.push("/incidents")
+    } else if (res?.data?.error == "Invalid token") {
+      router.push("/");
+    }
   }
+
+
   return (
     <div className={cn("flex flex-col gap-6", className)}>
       <Card>

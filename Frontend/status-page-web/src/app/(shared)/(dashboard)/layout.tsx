@@ -2,10 +2,7 @@ import { AppSidebar } from "@/components/app-sidebar"
 import {
     Breadcrumb,
     BreadcrumbItem,
-    BreadcrumbLink,
     BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { BreadcrumbPageWrapper } from "@/components/ui/breadcrumbpagewrapper";
 import { Separator } from "@/components/ui/separator"

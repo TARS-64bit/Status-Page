@@ -5,8 +5,6 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="flex flex-1 align-middle items-center flex-col gap-4 p-4">
-
-
       <Tabs defaultValue="open" className="w-[600px] m-10">
         <div className="pb-2 border-solid border-b-2 flex justify-between">
           <TabsList>

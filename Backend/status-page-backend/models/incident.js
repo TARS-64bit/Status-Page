@@ -5,8 +5,10 @@ import Service from "./service.js";
 const Incident = sequelize.define("Incident", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   serviceId: { type: DataTypes.INTEGER, allowNull: false },
-  description: { type: DataTypes.TEXT, allowNull: false },
-  resolved: { type: DataTypes.BOOLEAN, defaultValue: false },
+  incidentName: { type: DataTypes.STRING, allowNull: false }, // Incident name
+  status: { type: DataTypes.STRING, allowNull: false, defaultValue: "open" }, // Incident status (open, in-progress, resolved)
+  message: { type: DataTypes.TEXT, allowNull: false }, // Incident message
+  userId: { type: DataTypes.INTEGER, allowNull: false }, // User ID to associate the incident with a specific user
 });
 
 Service.hasMany(Incident, { foreignKey: "serviceId" });
