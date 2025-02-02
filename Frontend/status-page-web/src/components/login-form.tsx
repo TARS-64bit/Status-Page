@@ -12,8 +12,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import { FormEvent, useState } from "react"
-import { useLoginState } from "@/utils/useLoginState"
+import { useLoginState } from "@/hooks/use-loginState"
 import { LoginUseCase } from "@/modules/auth/domain/usecases/loginUseCase"
+import { useRouter } from "next/navigation"
 
 interface LoginFormProps extends React.ComponentPropsWithoutRef<"div"> {
   className?: string;
@@ -24,13 +25,13 @@ export function LoginForm({
 }: Readonly<LoginFormProps>) {
 
   const { loginState, updateLoginState } = useLoginState();
+  const router = useRouter();
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const res = await LoginUseCase({ loginState });
 
-    LoginUseCase({ loginState })
-    console.log("loginState?.email;", loginState?.email);
-    console.log("loginState?.password;", loginState?.password);
+    if (res?.ok) router.push("/dashboard");
   }
   return (
     <div className={cn("flex flex-col gap-6", className)}>

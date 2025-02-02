@@ -12,9 +12,9 @@ export default function LoginPage() {
           <div className="flex h-6 w-6 items-center justify-center rounded-md bg-stone-900 text-stone-50 dark:bg-stone-50 dark:text-stone-900">
             <GalleryVerticalEnd className="size-4" />
           </div>
-          <p className="text-stone-50">
+          <div className="text-stone-50">
             Status Page
-          </p>
+          </div>
         </Link>
         <LoginForm />
       </div>

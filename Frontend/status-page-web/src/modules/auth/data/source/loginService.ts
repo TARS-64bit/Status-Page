@@ -7,15 +7,15 @@ export const LoginService = async ({ request }: Readonly<{ request: ILoginReques
     const apiEndpint = getLoginEndpoint(IAuthEndpoints.Login);
     const requestInit: RequestInit = { method: "POST", cache: "no-store", body: JSON.stringify(request), headers: {} }
     try {
-
-        console.log("apiEndpint.url", apiEndpint.url);
-        console.log("requestInit", requestInit);
         const res = await fetch(apiEndpint.url, requestInit);
+        console.log("apiEndpint", apiEndpint);
+        console.log("requestInit", requestInit);
         const data: ILoginResponse = await res.json();
-
+        console.log("data", data);
         return { ok: res.ok, data: data };
 
     } catch (error) {
+        console.log("error", error);
         return { ok: false, data: null };
     }
 }
